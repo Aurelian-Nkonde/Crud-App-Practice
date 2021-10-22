@@ -1,0 +1,42 @@
+@model IEnumerable<MvcPhilosopher.Models.Philosopher>;
+
+@{
+    ViewData["heading"] = "this is the Philosopher app";
+}
+
+<div class="container mx-auto pt-16 pb-10 max-w-3xl px-6">
+    @if (Model.Count() > 0)
+    {
+        <h1 class="font-sans text-3xl  text-center pb-2"><span class="font-bold "> @Model.Count() </span> Philosophers in the database</h1>
+    }
+    else
+    {
+        <h1 class="font-sans text-3xl text-center pb-2"><span class="font-bold text-red-600"> @Model.Count() </span> Philosophers in the database</h1>
+    }
+    <h2 class="font-sans text-2xl underline tracking-wide text-center">List of Philosophers</h2>
+    <div class="pt-28">
+        @if (Model.Count() > 0)
+        {
+            @foreach(var philo in Model)
+            {
+            <div class="grid grid-cols-2 mb-4 border-2 border-gray-300 py-2 px-3 mx-auto bg-transparent transition ease-in-out duration-200 hover:bg-gray-200 hover:border-transparent">
+                <div class="flex gap-4 ">
+                    <h1 class="font-sans text-xl tracking-wide">@philo.First</h1>
+                    <h1 class="font-sans text-xl tracking-wide">@philo.Last</h1>
+                </div>
+                <div class="flex gap-6 items-center justify-center">
+                    <a  asp-controller="Philosopher" asp-action="Edit" asp-route-Id="@philo.Id" class="font-sans text-lg bg-green-600 py-1 px-7 transition ease-in-out duration-150 hover:bg-green-700 text-white">Edit</a>
+                    <a  asp-controller="Philosopher" asp-action="Delete" asp-route-Id="@philo.Id" class="font-sans text-lg bg-red-600 py-1 px-7 transition ease-in-out duration-150 hover:bg-red-700 text-white">Delete</a>
+                </div>
+            </div>
+            }
+        }
+        else 
+        {
+           <div class="h-64 flex flex-col items-center">
+               <h1 class="text-red-600 text-4xl tracking-wide">No data at the moment</h1>
+           </div>
+        }
+    </div>
+
+

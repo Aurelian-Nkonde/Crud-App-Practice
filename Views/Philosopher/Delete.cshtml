@@ -1,0 +1,52 @@
+@model  MvcPhilosopher.Models.Philosopher;
+
+
+@{
+
+}
+
+
+
+    
+    <div class="container mx-auto pt-16 pb-10 max-w-lg px-6">
+        <div class="pb-10">
+            <h1 class="font-sans text-3xl tracking-wide pb-1 underline">Delete the data</h1>  
+        </div>
+
+        <div class="max-w-lg mx-auto">
+            <form asp-action="DeleteData">
+                <input asp-for="Id" class="hidden"/>
+                <div class="py-2 grid gap-3 grid-cols-2">
+                    <div class="flex flex-col">
+                        <input asp-for="First" type="text" disabled class="font-sans py-2 px-3 outline-none border-2 border-gray-400 w-full">
+                    </div>
+                    <div class="flex flex-col">
+                        <input asp-for="Last" type="text" disabled class="font-sans py-2 px-3 outline-none border-2 border-gray-400 w-full">
+                    </div>
+                </div>
+                <div class="py-2 flex flex-col">
+                    <input asp-for="Field" type="text" disabled class="font-sans py-2 px-3 outline-none border-2 border-gray-400 w-full">
+                </div>
+                <div class="py-2 flex flex-col">
+                    <input asp-for="Country" type="text" disabled class="font-sans py-2 px-3 outline-none border-2 border-gray-400 w-full">
+                </div>
+                <div class="py-2 flex flex-col">
+                    <input asp-for="Invention" type="text" disabled class="font-sans py-2 px-3 outline-none border-2 border-gray-400 w-full">
+                </div>
+                <div class="py-2 grid gap-3 grid-cols-2">
+                    <div class="flex flex-col">
+                        <input asp-for="Age" type="number" disabled class="font-sans py-2 px-3 outline-none border-2 border-gray-400 w-full">
+                    </div>
+                    <div class="flex flex-col">
+                        <input type="file" disabled class="font-sans py-2 px-3 outline-none border-2 border-gray-400 w-full">
+                    </div>
+                </div>
+                <button type="submit" class="font-sans text-lg bg-red-600 py-3 px-7 w-full transition ease-in-out duration-150 hover:bg-red-700 text-white">Delete</button>
+            </form>
+        </div>
+    </div>
+
+
+    @section Scripts{
+        @{ <partial name="_ValidationScriptsPartial" /> }
+    }
